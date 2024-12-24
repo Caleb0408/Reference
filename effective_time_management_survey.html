@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effective Time Management Survey</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .chart-container {
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Effective Time Management Survey</h1>
+    <p>This chart represents the survey results for "I Have" and "I Don't Have" effective time management methods across two schools.</p>
+    <div class="chart-container">
+        <canvas id="surveyChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('surveyChart').getContext('2d');
+        const data = {
+            labels: ['Ohio State University', 'CDUTCM'],
+            datasets: [
+                {
+                    label: 'I Have',
+                    data: [40, 30],
+                    backgroundColor: 'green'
+                },
+                {
+                    label: "I Don't Have",
+                    data: [60, 70],
+                    backgroundColor: 'red'
+                }
+            ]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Survey Results'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Percentage (%)'
+                        }
+                    }
+                }
+            }
+        };
+
+        new Chart(ctx, config);
+    </script>
+</body>
+</html>
